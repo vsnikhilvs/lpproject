@@ -1,0 +1,19 @@
+#header {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%;
+    z-index: 20000;
+    background-color: #7A1F99;
+}
+.dbtn {
+    background-color:  transparent;
+    border: none;
+}
+.p-button:enabled:hover {
+    background-color: #6b0e8a !important;
+}
+.nav-item :hover{
+  cursor: pointer;
+}
+.p-dialog .p-dialog-header {
+  padding: 1rem !important;
+}

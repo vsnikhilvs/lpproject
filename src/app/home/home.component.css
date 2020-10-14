@@ -1,0 +1,23 @@
+.mainDiv {
+    background-image: url("https://i.pinimg.com/originals/e7/e3/89/e7e3899a8497ff30647453b06547d1ca.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 90vh;
+}
+
+.content {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: white;
+  text-align: center;
+  padding-top: 10%;
+}
+.mainHead {
+  font-weight: 900;
+  font-size: 3.8rem;
+}
+.secHead {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+}

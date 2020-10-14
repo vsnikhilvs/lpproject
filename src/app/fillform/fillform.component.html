@@ -1,0 +1,83 @@
+<div class="container main">
+  <span style="font-size: 3rem;"><strong>Subscription</strong></span><br/>
+  <span style="font-size: 1rem;">Fill out the form to subscribe</span>
+  <div class="mt-2">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="row" style="justify-content: center;">
+              <div class="col-md-3 col-sm-12">
+                  <label><strong>First Name*</strong></label>
+                  <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                      <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                  </div>
+              </div>
+              <div class="col-md-3 col-sm-12">
+                  <label><strong>Last Name*</strong></label>
+                  <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                  </div>
+              </div>
+              <div class="col-md-3 col-sm-12">
+                  <label><strong>Mobile*</strong></label>
+                  <input type="text" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+                  <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                      <div *ngIf="f.mobile.errors.required">Mobile Number is required</div>
+                  </div>
+              </div>
+          </div>
+          <div class="row" style="justify-content: center;">
+              <div class="col-md-3 col-sm-12">
+                  <label><strong>Address 1*</strong></label>
+                  <input type="text" formControlName="address1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" />
+                  <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
+                      <div *ngIf="f.address1.errors.required">Address 1 is required</div>
+                  </div>
+              </div>
+              <div class="col-md-3 col-sm-12">
+                  <label><strong>Address 2*</strong></label>
+                  <input type="text" formControlName="address2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" />
+                  <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
+                      <div *ngIf="f.address2.errors.required">Address 2 is required</div>
+                  </div>
+              </div>
+              <div class="col-md-3 col-sm-12">
+                  <label><strong>Email*</strong></label>
+                  <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">email is required</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div style="text-align: center;" class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+              <span><strong>Drag your picture here</strong></span>
+              <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+            </div>
+          </div>
+          <div class="files-list" *ngFor="let file of files;let i= index">
+              <p> {{ file }} </p>
+              <button class="delete-file" (click)="deleteAttachment(i)">
+                <i class="pi pi-trash"></i>
+              </button>
+          </div>
+
+          <div class="text-center my-2">
+              <button pButton pRipple label="Register" class="btn btn-primary mr-1"></button>
+              <button pButton pRipple class="btn btn-secondary" type="reset" label="Reset" (click)="onReset()"></button>
+          </div>
+      </form>
+  </div>
+</div>
+<p-toast position="top-center" key="tc" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+
